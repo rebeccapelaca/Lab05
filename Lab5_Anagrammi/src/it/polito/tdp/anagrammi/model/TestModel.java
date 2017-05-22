@@ -16,7 +16,7 @@ public class TestModel {
 			System.out.println(s);
 		
 		System.out.println(m.count);
-		/*
+		
 		m.controllaAnagramma();
 		for(Anagramma a : m.getSoluzioni_complete_anagramma()) {
 			if(a.isValida())
@@ -25,6 +25,5 @@ public class TestModel {
 				System.out.println("Parola sbagliata: " + a.getAnagramma());
 				
 		}
-		*/
 	}
 }

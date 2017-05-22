@@ -28,13 +28,11 @@ public class Model {
 
 	public void add(String parola_input) {
 		
-		dim_parola_input = 0;
-		this.lettere_input = new Character[parola_input.length()];
+		dim_parola_input = parola_input.length();
+		this.lettere_input = new Character[dim_parola_input];
 		
-		for(int i=0; i<parola_input.length(); i++) {
-			lettere_input[i]= parola_input.charAt(i);
-			dim_parola_input++;
-		}
+		for(int i=0; i<parola_input.length(); i++)
+			lettere_input[i] = parola_input.charAt(i);		
 	}
 	
 	public void recursive(String parziale, int livello) {
@@ -55,21 +53,21 @@ public class Model {
 			lettera_ripetuta_parziale=0;
 			lettera_ripetuta_generale=0;
 			
-		 for(int i=0; i<parziale.length(); i++) 
+			for(int i=0; i<parziale.length(); i++) 
 				if(parziale.charAt(i)==c)
 					lettera_ripetuta_parziale++;
-	
-		 for(int j=0; j<lettere_input.length; j++)
-			 if(c==lettere_input[j])
-				 lettera_ripetuta_generale++;
-		 
-		 if(lettera_ripetuta_parziale<lettera_ripetuta_generale) {
-			 parziale += c;
-			 recursive(parziale, livello+1);
-			 parziale = parziale.substring(0, parziale.length()-1); 
-		 }
+			
+			for(int j=0; j<lettere_input.length; j++)
+				if(c==lettere_input[j])
+					lettera_ripetuta_generale++;
+			
+			if(lettera_ripetuta_parziale<lettera_ripetuta_generale) {
+				parziale += c;
+				recursive(parziale, livello+1);
+				parziale = parziale.substring(0, parziale.length()-1); 
+				}
+			}
 		}
-	}
 	
 	public void controllaAnagramma() {
 		
